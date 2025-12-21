@@ -1,1 +1,162 @@
+@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&family=Roboto:ital,wdth,wght@0,75..100,100..900;1,75..100,100..900&display=swap");
 @import "tailwindcss";
+
+@theme {
+  --font-quicksand: "Quicksand", sans-serif;
+  --text-d3xl: 56px;
+  --text-d2xl: 48px;
+  --text-dxl: 40px;
+  --text-dlg: 36px;
+  --text-dmd: 32px;
+  --text-dsm: 28px;
+  --text-dxs: 24px;
+  --text-md: 16px;
+
+  --color-black-header: rgba(0, 0, 0, 0.5);
+  --color-black-message: rgba(0, 0, 0, 0.8);
+  --color-white-header: rgba(255, 255, 255, 0.5);
+
+  --color-neutral-25: #fdfdfd;
+  --color-neutral-25-light: #0a0d12;
+  --color-neutral-50: #fafafa;
+  --color-neutral-100: #f5f5f5;
+  --color-neutral-200: #e9eaeb;
+  --color-neutral-300: #d5d7da;
+  --color-neutral-400: #a4a7ae;
+  --color-neutral-500: #717680;
+  --color-neutral-600: #535862;
+  --color-neutral-600-light: #aaaaaa;
+  --color-neutral-700: #414651;
+  --color-neutral-800: #252b37;
+  --color-neutral-800-light: #dfdfdf;
+  --color-neutral-900: #181d27;
+  --color-neutral-900-light: #dedcdc;
+  --color-neutral-950: #0a0d12;
+  --color-neutral-950-light: #fafafa;
+  --color-primary-100: #ffe0d8;
+  --color-primary-200: #ff623e;
+  --color-primary-300: #cc4e32;
+  --color-primary-400: #80311f;
+
+  --inset-shadow-comp-hero: inset 60px -100px 300px rgba(0, 0, 0, 1);
+  --inset-shadow-comp-hero-light: inset 100px -100px 100px rgba(255, 255, 255, 1);
+  --inset-shadow-comp-Review: inset 5px 5px 10px rgba(0, 0, 0, 1);
+
+  --color-btn-bg: rgba(0, 0, 0, 0.5);
+
+  --inset-shadow-btn: inset 4px 4px 4px rgba(255, 255, 255, 0.25);
+  --inset-shadow-btn-hover: inset 4px 4px 10px rgba(255, 255, 255, 0.55);
+
+  --animate-infinite: scroll 20s linear infinite;
+
+  @keyframes scroll {
+    0% {
+      transform: translateX(0%);
+    }
+    100% {
+      transform: translateX(-146.3%);
+    }
+  }
+
+  @keyframes fadein {
+    form {
+      transform: translatex(-20px);
+    }
+    to {
+      transform: translatex(0);
+    }
+  }
+}
+
+.infinite-scroll::-webkit-scrollbar {
+  display: none;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-white text-black dark:bg-black dark:text-white font-quicksand;
+}
+
+p {
+  @apply text-black dark:text-neutral-400;
+}
+
+h1 {
+  @apply md:text-d3xl font-bold text-dlg left-11 tracking-tight leading-11 md:leading-17;
+}
+
+h2 {
+  @apply text-dsm font-bold md:text-dxl;
+}
+
+h3 {
+  @apply text-md md:text-dxs;
+}
+
+.namelbl {
+  @apply text-sm font-bold;
+}
+
+.nameinput {
+  @apply border w-full border-neutral-800 rounded-xl py-2 text-sm text-neutral-500 px-4;
+}
+
+/* slider working */
+.testimonial-slider .slick-track {
+  display: flex;
+}
+
+.testimonial-slider .slick-slide > div {
+  padding: 0 10px;
+}
+
+.testimonial-slider .testimonial-card {
+  opacity: 0.35;
+  transform: scale(0.9);
+  transition: 300ms ease;
+}
+
+.testimonial-slider .slick-center .testimonial-card {
+  opacity: 1;
+  transform: scale(1);
+  z-index: 100;
+}
+
+.testimonial-slider .slick-list {
+  overflow: visible !important;
+}
+
+.testimonial-slider .slick-track {
+  display: flex;
+  gap: 0px;
+}
+
+.slick-dots {
+  bottom: -70px !important;
+  @apply md:!-bottom-22 left-4;
+}
+
+.custom-dots li button:before {
+  content: "";
+  width: 8px !important;
+  height: 8px !important;
+  background: #414651;
+  border-radius: 9999px;
+  opacity: 1;
+  @apply md:!w-3 md:!h-3;
+}
+
+.custom-dots li.slick-active button:before {
+  background: #ff623e;
+  width: 8px;
+  @apply md:!w-3 md:!h-3;
+  transition: all 0.3s ease;
+  z-index: 50;
+}
+
+.a-link {
+  @apply hover:text-primary-200 transition active:text-primary-100;
+}

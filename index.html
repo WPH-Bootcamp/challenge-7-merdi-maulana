@@ -1,13 +1,25 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <script>
+      (() => {
+        const theme = localStorage.theme;
+        const systemDark = window.matchMedia(
+          "(prefers-color-scheme: dark)"
+        ).matches;
+
+        if (theme === "dark" || (!theme && systemDark)) {
+          document.documentElement.classList.add("dark");
+        }
+      })();
+    </script>
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Vite + React + TS</title>
   </head>
   <body>
-    <div id="root"></div>
+    <div id="root">Loading..</div>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>
